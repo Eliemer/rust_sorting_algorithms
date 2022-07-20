@@ -22,7 +22,7 @@ fn quicksort<T: PartialOrd>(xs: &mut [T], lo: usize, hi: usize) {
 }
 
 fn partition<T: PartialOrd>(xs: &mut [T], lo: usize, hi: usize) -> usize {
-    let mut i = if lo == 0 { 0 } else { lo - 1 };
+    let mut i = lo;
     for j in lo..hi {
         if xs[j] <= xs[hi] {
             xs.swap(i, j);
@@ -41,23 +41,26 @@ mod tests {
 
     #[test]
     fn basic_test() {
-        let mut xs = [0, -1];
+        let mut xs = [0, -1, 1, -2, 2];
         sort(&mut xs);
         assert!(is_sorted(&mut xs));
     }
 
     #[test]
     fn test_partition() {
-        let arr = [1, 5, 2, 4, 3];
-        let i = partition(&mut arr.clone(), 0, 4);
+        let mut arr = [1, 5, 2, 4, 3];
+        let i = partition(&mut arr, 0, 4);
         assert!(i == 2);
+
+        let mut arr2 = [0, -2, 1, 2, -1];
+        assert_eq!(1, partition(&mut arr2, 0, 4));
     }
 
     #[quickcheck]
     fn qc_test(xs: Vec<isize>) -> bool {
         let mut xs_copy = xs.clone();
+        
         sort(&mut xs_copy);
-
         is_sorted(&xs_copy) && elements_match(&xs, &xs_copy)
     }
 }
