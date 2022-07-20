@@ -1,4 +1,5 @@
 pub mod bubble_sorts;
+pub mod efficient_sorts;
 pub mod helpers;
 pub mod simple_sorts;
 
