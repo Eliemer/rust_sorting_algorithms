@@ -12,12 +12,11 @@ mod tests {
     use super::sort;
     use super::super::super::helpers::{is_sorted, elements_match};
 
-    quickcheck! {
-        fn test(xs: Vec<isize>) -> bool {
-            let mut xs_copy = xs.clone();
-            sort(&mut xs_copy);
+    #[quickcheck]
+    fn qc_test(xs: Vec<isize>) -> bool {
+        let mut xs_copy = xs.clone();
+        sort(&mut xs_copy);
 
-            is_sorted(&xs_copy) && elements_match(&xs, &xs_copy)
-        }
+        is_sorted(&xs_copy) && elements_match(&xs, &xs_copy)
     }
 }
