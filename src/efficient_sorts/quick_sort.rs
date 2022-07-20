@@ -54,6 +54,7 @@ mod tests {
 
         let mut arr2 = [0, -2, 1, 2, -1];
         assert_eq!(1, partition(&mut arr2, 0, 4));
+        assert_eq!([-2,-1,1,2,0], arr2);
     }
 
     #[quickcheck]
