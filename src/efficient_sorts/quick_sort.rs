@@ -36,9 +36,9 @@ fn partition<T: PartialOrd>(xs: &mut [T], lo: usize, hi: usize) -> usize {
 
 #[cfg(test)]
 mod tests {
-    use super::super::super::helpers::{elements_match, is_sorted};
     use super::{partition, sort};
-
+    use crate::helpers::{elements_match, is_sorted};
+    
     #[test]
     fn basic_test() {
         let mut xs = [0, -1, 1, -2, 2];

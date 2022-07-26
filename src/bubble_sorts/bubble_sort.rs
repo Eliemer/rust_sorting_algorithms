@@ -11,7 +11,7 @@ pub fn sort<T: PartialEq + PartialOrd>(xs: &mut [T]) {
 
 #[cfg(test)]
 mod tests {
-    use super::super::super::helpers::{elements_match, is_sorted};
+    use crate::helpers::{elements_match, is_sorted};
     use super::sort;
 
     #[quickcheck]

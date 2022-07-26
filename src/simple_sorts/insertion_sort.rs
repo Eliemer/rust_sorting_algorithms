@@ -10,7 +10,7 @@ pub fn sort<T: PartialOrd>(xs: &mut [T]){
 #[cfg(test)]
 mod tests {
     use super::sort;
-    use super::super::super::helpers::{is_sorted, elements_match};
+    use crate::helpers::{is_sorted, elements_match};
 
     #[quickcheck]
     fn qc_test(xs: Vec<isize>) -> bool {
